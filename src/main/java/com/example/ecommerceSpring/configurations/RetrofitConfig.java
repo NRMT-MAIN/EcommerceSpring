@@ -8,11 +8,14 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 @Configuration
 public class RetrofitConfig {
+
+    String FAKESTOREAPI = DotenvConfig.getDotenv().get("FAKESTOREAPI") ;
+
     //This bean is applicable on method for creating the object of it.
     @Bean
     public Retrofit retrofit() {
         return new Retrofit.Builder()
-                .baseUrl("https://fakestoreapi.in/api/")
+                .baseUrl(FAKESTOREAPI)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build() ;
     }
