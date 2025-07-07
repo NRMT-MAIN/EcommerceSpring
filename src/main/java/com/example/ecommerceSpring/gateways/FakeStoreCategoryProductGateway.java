@@ -36,8 +36,6 @@ public class FakeStoreCategoryProductGateway implements ICategoryProductsGateway
             throw new IOException("Failed to fetch product from FakeStore API");
         }
 
-        ProductCategoryResponseDTO response =  objectMapper.readValue(json, ProductCategoryResponseDTO.class) ;
-
-        return response ;
+        return objectMapper.readValue(json, ProductCategoryResponseDTO.class) ;
     }
 }

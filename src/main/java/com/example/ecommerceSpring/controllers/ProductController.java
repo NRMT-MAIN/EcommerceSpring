@@ -26,7 +26,7 @@ public class ProductController {
         return this.singleProductService.getSingleProduct(id) ;
     }
 
-    @GetMapping("/products/category?type")
+    @GetMapping("/category")
     public ProductCategoryResponseDTO getCategoryProduct(@RequestParam("type") String type) throws IOException {
         return this.categoryProductService.getCategoryProduct(type) ;
     }
