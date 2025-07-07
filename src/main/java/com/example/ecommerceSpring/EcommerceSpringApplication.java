@@ -1,6 +1,6 @@
 package com.example.ecommerceSpring;
 
-import com.example.ecommerceSpring.configurations.DotenvConfig;
+import io.github.cdimascio.dotenv.Dotenv;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -9,7 +9,9 @@ public class EcommerceSpringApplication {
 
 	public static void main(String[] args) {
 
-		DotenvConfig.getDotenv().entries().forEach(entry -> {
+		Dotenv dotenv = Dotenv.configure().load();
+
+		dotenv.entries().forEach(entry -> {
 			System.setProperty(entry.getKey() , entry.getValue()) ;
 		});
 		//Set system properties from environment variable
