@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit;
 
 @Component
 public class OkHTTPConfig {
-    OkHttpClient okHttpClient = new OkHttpClient.Builder()
+    private final OkHttpClient okHttpClient = new OkHttpClient.Builder()
             .connectTimeout(15, TimeUnit.SECONDS)
             .readTimeout(30, TimeUnit.SECONDS)
             .writeTimeout(30, TimeUnit.SECONDS)

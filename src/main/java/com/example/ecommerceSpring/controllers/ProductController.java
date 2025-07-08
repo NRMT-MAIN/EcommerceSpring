@@ -1,7 +1,6 @@
 package com.example.ecommerceSpring.controllers;
 
 import com.example.ecommerceSpring.dtos.ProductCategoryResponseDTO;
-import com.example.ecommerceSpring.dtos.SingleProductDTO;
 import com.example.ecommerceSpring.dtos.SingleProductResponseDTO;
 import com.example.ecommerceSpring.services.ICategoryProductService;
 import com.example.ecommerceSpring.services.ISingleProductService;

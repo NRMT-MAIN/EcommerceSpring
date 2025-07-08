@@ -2,7 +2,9 @@ package com.example.ecommerceSpring.controllers;
 
 import com.example.ecommerceSpring.dtos.CategoryDTO;
 import com.example.ecommerceSpring.services.ICategoryService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -24,8 +26,15 @@ public class CategoryController {
     }
 
     @GetMapping
-    public List<CategoryDTO> getAllCategories() throws IOException {
+    public ResponseEntity<List<CategoryDTO>> getAllCategories() throws IOException {
 
-        return this.categoryService.getAllCategories() ;
+        List<CategoryDTO> response = this.categoryService.getAllCategories() ;
+
+        return ResponseEntity.ok(response) ;
+    }
+
+    @PostMapping
+    public ResponseEntity<CategoryDTO> createCategory(CategoryDTO categoryDTO){
+        throw new UnsupportedOperationException("Not Yet Implemented") ;
     }
 }
