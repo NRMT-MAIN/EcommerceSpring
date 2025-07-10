@@ -10,7 +10,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class SingleProductDTO {
-    private int id;
+    private Long id;
     private String title;
     private String image;
     private double price;

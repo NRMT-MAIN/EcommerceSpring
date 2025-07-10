@@ -3,10 +3,7 @@ package com.example.ecommerceSpring.controllers;
 import com.example.ecommerceSpring.dtos.CategoryDTO;
 import com.example.ecommerceSpring.services.ICategoryService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 import java.util.List;
@@ -34,7 +31,8 @@ public class CategoryController {
     }
 
     @PostMapping
-    public ResponseEntity<CategoryDTO> createCategory(CategoryDTO categoryDTO){
-        throw new UnsupportedOperationException("Not Yet Implemented") ;
+    public ResponseEntity<CategoryDTO> createCategory(@RequestBody CategoryDTO categoryDTO) throws IOException {
+        CategoryDTO category = this.categoryService.createCategory(categoryDTO) ;
+        return ResponseEntity.ok(category) ;
     }
 }
