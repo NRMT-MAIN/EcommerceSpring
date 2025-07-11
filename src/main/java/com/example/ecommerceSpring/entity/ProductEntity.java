@@ -1,6 +1,7 @@
 package com.example.ecommerceSpring.entity;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import lombok.*;
@@ -22,7 +23,8 @@ public class ProductEntity extends BaseEntity{
     private boolean popular;
     private int discount;
 
-    @JoinColumn(name="category_Id" ,nullable = false)
-    @ManyToOne
+    //In this Until required it will not show the join table properties
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="category_id" ,nullable = false)
     private CategoryEntity category ;
 }

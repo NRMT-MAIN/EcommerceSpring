@@ -1,9 +1,12 @@
 package com.example.ecommerceSpring.services;
 
+import com.example.ecommerceSpring.dtos.ProductWithCategoryDTO;
 import com.example.ecommerceSpring.dtos.SingleProductDTO;
 import com.example.ecommerceSpring.dtos.SingleProductResponseDTO;
+import com.example.ecommerceSpring.entity.CategoryEntity;
 import com.example.ecommerceSpring.entity.ProductEntity;
 import com.example.ecommerceSpring.mappers.ProductMapper;
+import com.example.ecommerceSpring.repository.CategoryRepository;
 import com.example.ecommerceSpring.repository.ProductRepository;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
@@ -14,9 +17,11 @@ import java.io.IOException;
 @Primary
 public class ProductService implements ISingleProductService {
     private final ProductRepository productRepository ;
+    private final CategoryRepository categoryRepository ;
 
-    public ProductService(ProductRepository productRepository){
+    public ProductService(ProductRepository productRepository , CategoryRepository categoryRepository){
         this.productRepository = productRepository ;
+        this.categoryRepository = categoryRepository ;
     }
 
     @Override
@@ -26,7 +31,10 @@ public class ProductService implements ISingleProductService {
 
     @Override
     public SingleProductDTO createProduct(SingleProductDTO dto) throws IOException {
-        ProductEntity product = productRepository.save(ProductMapper.toEntity(dto)) ;
+        CategoryEntity category = categoryRepository.findById(dto.getCategoryId())
+                         .orElseThrow(() -> new IOException("Category Not Found")) ;
+
+        ProductEntity product = productRepository.save(ProductMapper.toEntity(dto , category)) ;
 
         return ProductMapper.toDto(product) ;
     }
@@ -41,5 +49,12 @@ public class ProductService implements ISingleProductService {
                 .orElseThrow(() -> new IOException("Product Not found"));
 
         return ProductMapper.toDto(product) ;
+    }
+
+    @Override
+    public ProductWithCategoryDTO getProductWithCategory(Long id) throws IOException {
+        ProductEntity product = this.productRepository.findById(id)
+                .orElseThrow(() -> new IOException("Product not Found")) ;
+        return ProductMapper.toProductWithCategoryDTO(product) ;
     }
 }

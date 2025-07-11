@@ -1,9 +1,8 @@
 package com.example.ecommerceSpring.mappers;
 
 import com.example.ecommerceSpring.dtos.CategoryDTO;
+import com.example.ecommerceSpring.dtos.CategoryWithProductsDTO;
 import com.example.ecommerceSpring.entity.CategoryEntity;
-
-import java.util.List;
 
 public class CategoryMapper {
     public static CategoryDTO toDto(CategoryEntity categoryEntity){
@@ -18,4 +17,5 @@ public class CategoryMapper {
                 .name(categoryDTO.getName())
                 .build();
     }
+
 }

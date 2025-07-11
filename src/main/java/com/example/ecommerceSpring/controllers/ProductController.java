@@ -1,6 +1,7 @@
 package com.example.ecommerceSpring.controllers;
 
 import com.example.ecommerceSpring.dtos.ProductCategoryResponseDTO;
+import com.example.ecommerceSpring.dtos.ProductWithCategoryDTO;
 import com.example.ecommerceSpring.dtos.SingleProductDTO;
 import com.example.ecommerceSpring.dtos.SingleProductResponseDTO;
 import com.example.ecommerceSpring.services.ICategoryProductService;
@@ -38,6 +39,11 @@ public class ProductController {
     @GetMapping("/{id}")
     public SingleProductDTO getProductById(@PathVariable Long id) throws IOException {
         return this.singleProductService.getProductById(id) ;
+    }
+
+    @GetMapping("/{id}/category")
+    public ProductWithCategoryDTO getProductWithCategoryById(@PathVariable Long id) throws IOException{
+        return this.singleProductService.getProductWithCategory(id) ;
     }
 
 }

@@ -1,5 +1,6 @@
 package com.example.ecommerceSpring.services;
 
+import com.example.ecommerceSpring.dtos.ProductWithCategoryDTO;
 import com.example.ecommerceSpring.dtos.SingleProductDTO;
 import com.example.ecommerceSpring.dtos.SingleProductResponseDTO;
 import com.example.ecommerceSpring.gateways.ISingleProductGateways;
@@ -27,6 +28,11 @@ public class FakeSingleProductService implements ISingleProductService {
 
     @Override
     public SingleProductDTO getProductById(Long id) throws IOException {
+        return null;
+    }
+
+    @Override
+    public ProductWithCategoryDTO getProductWithCategory(Long id) throws IOException {
         return null;
     }
 }
