@@ -5,6 +5,7 @@ import com.example.ecommerceSpring.dtos.SingleProductDTO;
 import com.example.ecommerceSpring.dtos.SingleProductResponseDTO;
 import com.example.ecommerceSpring.entity.CategoryEntity;
 import com.example.ecommerceSpring.entity.ProductEntity;
+import com.example.ecommerceSpring.exceptions.ProductNotFoundException;
 import com.example.ecommerceSpring.mappers.ProductMapper;
 import com.example.ecommerceSpring.repository.CategoryRepository;
 import com.example.ecommerceSpring.repository.ProductRepository;
@@ -46,7 +47,7 @@ public class ProductService implements ISingleProductService {
         //                .orElseThrow(() -> new Exception("Product not found"));`
 
         ProductEntity product = productRepository.findById(id)
-                .orElseThrow(() -> new IOException("Product Not found"));
+                .orElseThrow(() -> new ProductNotFoundException("Product Not found"));
 
         return ProductMapper.toDto(product) ;
     }

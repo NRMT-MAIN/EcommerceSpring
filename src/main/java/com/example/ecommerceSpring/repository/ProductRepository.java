@@ -13,6 +13,7 @@ public interface ProductRepository extends JpaRepository<ProductEntity, Long> {
     //This is a custom query method using HQL. Explicitly define the query logic
     //http://localhost:7777/api/categories?minPrice=2500
     //SELECT p FROM PRODUCT_ENTITY p WHERE p.price > 5000 is a JPQL query (used in JPA/Hibernate).
+    // Here variable part is a Java class
     @Query("SELECT p FROM ProductEntity p WHERE p.price > :minPrice")
     List<ProductEntity> findExpensiveProduct(@Param("minPrice") double minPrice) ;
 
