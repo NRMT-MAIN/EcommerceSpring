@@ -4,15 +4,11 @@ import com.example.ecommerceSpring.dtos.ProductCategoryResponseDTO;
 import com.example.ecommerceSpring.dtos.ProductWithCategoryDTO;
 import com.example.ecommerceSpring.dtos.SingleProductDTO;
 import com.example.ecommerceSpring.dtos.SingleProductResponseDTO;
-import com.example.ecommerceSpring.exceptions.ErrorResponse;
-import com.example.ecommerceSpring.exceptions.ProductNotFoundException;
 import com.example.ecommerceSpring.services.ICategoryProductService;
 import com.example.ecommerceSpring.services.ISingleProductService;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
-import java.time.LocalDateTime;
 
 @RestController
 @RequestMapping("api/v1/products")

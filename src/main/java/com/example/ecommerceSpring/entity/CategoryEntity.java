@@ -1,9 +1,6 @@
 package com.example.ecommerceSpring.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.List;
@@ -14,6 +11,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@Table(name = "category")
 public class CategoryEntity extends BaseEntity {
     @Column(nullable = false , unique = true)
     private String name ;
