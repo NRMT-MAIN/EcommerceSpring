@@ -39,6 +39,7 @@ dependencies {
 	runtimeOnly 'com.mysql:mysql-connector-j:8.3.0'
 	implementation 'org.flywaydb:flyway-core:11.7.2'
 	implementation 'org.flywaydb:flyway-mysql:11.8.0'
+	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:4.3.0'
 }
 
 tasks.named('test') {
